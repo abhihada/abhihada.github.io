@@ -86,7 +86,7 @@
                           </button>
                         <div class="modal-body">
                           <img class="asteria_main" src="https://i.ibb.co/RCF6rsS/Screenshot-316.png">
-                          This website design was made for a popular lounge in Jaipur, Rajasthan; that goes by the name "Asteria". It includes all the essential elements to be present in a dining place website, such as testimonials, gallery, etc.
+                          This website design was made for a popular lounge in Jaipur, Rajasthan; that goes by the name "Asteria". It includes all the essential elements to be present in a dining place website, such as testimonials, menu, gallery, etc.
                         </div>
                       </div>
                     </div>
@@ -136,8 +136,8 @@
                           </button>
                         <div class="modal-body">
                           <img class="tof_main" src="https://i.ibb.co/k8YDx46/Screenshot-1396.png">
-                          This is the website that I worked on the most. I helped in designing most of it and developing some of the front-end sections.
-                           See it <a href="https://auth.theotherfruit.io/" target="_blank">live</a> here.
+                          This is the website that I worked on the most. I did the designing and prototyping process and developed some of the front-end sections.
+                           See it <a href="https://auth.theotherfruit.io/" target="_blank">live</a> here (Best viewed on desktop/laptop).
                         </div>
                       </div>
                     </div>
@@ -560,6 +560,25 @@
         }
         $('#secondCarousel').carousel(qs('slide'));
         });
+        </script>
+        <script>
+          $('.carousel').on('touchstart', function(event){
+      const xClick = event.originalEvent.touches[0].pageX;
+      $(this).one('touchmove', function(event){
+          const xMove = event.originalEvent.touches[0].pageX;
+          const sensitivityInPx = 5;
+  
+          if( Math.floor(xClick - xMove) > sensitivityInPx ){
+              $(this).carousel('next');
+          }
+          else if( Math.floor(xClick - xMove) < -sensitivityInPx ){
+              $(this).carousel('prev');
+          }
+      });
+      $(this).on('touchend', function(){
+          $(this).off('touchmove');
+      });
+  });
         </script>
 </body>
 </html>
